@@ -12,7 +12,7 @@ export default function Nav() {
   const handleClick = () => {
     setLogin(false);
     localStorage.setItem("email", "");
-    
+
   }
 
 
@@ -31,13 +31,18 @@ export default function Nav() {
               <Link to="/subway">지하철대기정보</Link>
             </li>
           }
+          {login &&
+            <li className='flex mx-1 p-2 rounded-sm hover:bg-white hover:text-black'>
+              <Link to="/todolist">투두리스트</Link>
+            </li>
+          }
         </ul>
         <div className='w-30 p-2 flex flex-col justify-between items-center text-white rounded-sm hover:cursor-pointer hover:bg-white hover:text-black'>
           {login ? <span className="flex items-center gap-1" onClick={handleClick}><RiLogoutBoxLine />로그아웃 </span>
             : <span className="flex items-center gap-1"> <RiLoginBoxFill />로그인</span>
           }
         </div>
-       
+
       </div>
 
 
