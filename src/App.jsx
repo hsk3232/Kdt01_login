@@ -14,7 +14,7 @@ function App() {
         <Nav />
 
 
-        <main className="w-full pt-10 flex flex-grow flex-col justify-start items-center overflow-y-auto">
+        <main className="w-full flex flex-grow flex-col justify-start items-center overflow-y-auto">
 
 
           <Routes>
