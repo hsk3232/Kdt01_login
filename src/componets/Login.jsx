@@ -47,10 +47,10 @@ export default function Login() {
     return (
         <div>
 
-            <form className="max-w-sm mx-auto">
+            <form className="pt-20 max-w-sm mx-auto">
                 <div class="mb-5">
                     <label for="email"
-                        className="block mb-2 text-xl font-medium text-gray-900"> email</label>
+                        className="block m-2 text-xl font-medium text-gray-900"> email</label>
                     <input type="email" id="email"
                         ref={emailRef}
                         className="bg-gray-50 border border-gray-300 
