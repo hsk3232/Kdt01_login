@@ -11,6 +11,11 @@ export default function Subway() {
                                   {item["측정소"]}
                                 </option> );
 
+  //화면이 처음 랜더링 될 때 getFetchData 함수를 호출함.
+  useEffect(() => {
+    getFetchData("201193");
+  } , []);
+  
   const getFetchData = async (code) => {
     let url = `https://apis.data.go.kr/6260000/IndoorAirQuality/getIndoorAirQualityByStation?`;
     url = `${url}serviceKey=${import.meta.env.VITE_APP_API_KEY}`;
@@ -27,10 +32,9 @@ export default function Subway() {
     getFetchData(refSel.current.value);
   }
 
-  useEffect(() => {
-    getFetchData("201193");
-  } , []);
 
+
+  //[tdata]가 바뀔 때 랜더링 함
   useEffect(() => {
     if (!tdata) return ;
 

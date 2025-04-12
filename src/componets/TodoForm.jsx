@@ -3,9 +3,9 @@ import TailSelect from "../UI/TailSelect"
 import { useEffect, useRef } from "react"
 
 // TodoList에서 TodoForm을 사용하기 위해서 props로 addTodo를 받아옴
-export default function TodoForm(addTodo) {
+export default function TodoForm({ addTodo }) {
     const textRef = useRef();
-    const completedRef = useRef();
+    const completedRef = useRef(null);
 
     const handleAdd = () => {
         if (textRef.current.value == "") {
@@ -25,7 +25,9 @@ export default function TodoForm(addTodo) {
     }
 
     useEffect(() => { 
-        completedRef.current.value = "O" //초기값 설정
+        if (completedRef.current) {  // 이렇게 방어 코드
+        completedRef.current.value = "X" //초기값 설정
+        }
     }, [])  
 
 

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Login() {
 
-    const [login, setLogin] = useAtom(isLogin);
+    const [, setLogin] = useAtom(isLogin);
     const emailRef = useRef();
     const pwdRef = useRef();
 
