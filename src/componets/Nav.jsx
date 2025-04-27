@@ -5,10 +5,13 @@ import { isLogin } from '../atoms/IsLoginAtom'
 import { Link } from 'react-router-dom'
 import { RiLoginBoxFill } from "react-icons/ri";
 import { FaHome } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function Nav() {
   //로그인이 됐을 때만 지하철 대기정보가 보여야 함으로 전역 변수를 가져옴.
   const [login, setLogin] = useAtom(isLogin);
+
+  const navigate = useNavigate();
 
   //로그아웃 버튼을 누르면, 핸들클릭이 일어나고 
   const handleClick = () => {
@@ -16,6 +19,7 @@ export default function Nav() {
     setLogin(false);
     //Application에 저장된 아이디를 삭제
     localStorage.setItem("email", "");
+    navigate('/');
 
   }
 

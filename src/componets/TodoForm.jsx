@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react"
 // TodoList에서 TodoForm을 사용하기 위해서 props로 addTodo를 받아옴
 export default function TodoForm({ addTodo }) {
     const textRef = useRef();
-    const completedRef = useRef(null);
+    const refSel = useRef();
 
     const handleAdd = () => {
         if (textRef.current.value == "") {
@@ -13,7 +13,7 @@ export default function TodoForm({ addTodo }) {
             return;
         }
 
-       addTodo(textRef.current.value, completedRef.current.value)
+       addTodo(textRef.current.value, refSel.current.value)
     }
 
     const handleEdit = () => {
@@ -25,10 +25,9 @@ export default function TodoForm({ addTodo }) {
     }
 
     useEffect(() => { 
-        if (completedRef.current) {  // 이렇게 방어 코드
-        completedRef.current.value = "X" //초기값 설정
-        }
-    }, [])  
+        refSel.current.value = "X" //초기값 설정
+        
+    }, []) 
 
 
 
@@ -36,8 +35,8 @@ export default function TodoForm({ addTodo }) {
         <div className="w-full mt-10 flex justify-between items-center rounded-xl bg-sky-200 gap-2">
            <div className="w-1/5 pl-3">
             <TailSelect 
-                id="sel" ref={completedRef}
-                onChange ={() => {}} //쓸 필요 없어서 빈 함수로 대체
+                id="sel" refSel={refSel}
+                handleChange ={() => {}} //쓸 필요 없어서 빈 함수로 대체
                 ops={["O", "X"]}
             />
             </div>

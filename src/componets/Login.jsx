@@ -41,7 +41,7 @@ export default function Login() {
 
         localStorage.setItem("email", emailRef.current.value);
         setLogin(true);
-        navigate('/');
+
     }
 
     return (
